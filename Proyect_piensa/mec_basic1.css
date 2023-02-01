@@ -1,0 +1,104 @@
+:root{
+    --theme-color: rgba(72, 72, 75, 0.933) ;
+    --primary-color: rgb(7, 7, 182);
+    --secundary-color: yellow;
+    --text-color-inverse: white;
+    --text-color: black;
+    --navbar-shadow-color: rgb(26, 26, 27);
+    --menu-mobile-background-color: rgb(93, 81, 145);
+}
+body{
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    background-color: var(--theme-color);
+    color: var(--text-color);
+}
+a {
+    text-decoration: none;
+}
+.topheader{
+box-shadow: 0 2px 3px var(--navbar-shadow-color);
+position: fixed;
+background-color: var(--theme-color);
+left: 0;
+top: 0;
+width: 100%;
+}
+.topnav{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+   max-width: 1180px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+.logo img{
+    border-radius: 50%;
+}
+.menu{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li{
+    padding: 0 30px;
+}
+.menu a{
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 50px;
+}
+.open-menu,
+.close-menu{
+    display: none;
+}
+@media(max-width: 950px) {
+    .menu{
+       flex-direction: column;
+       position: fixed;
+       left: 0;
+       top: 0;
+       width: 100%;
+       align-items: center;
+       background-color: var(--menu-mobile-background-color) ;
+       height: 100%; 
+       overflow-y: auto ;
+
+       opacity: 0;
+       pointer-events: none;
+       transition: opacity 0.4s;
+    }
+    .menu li{
+        padding: 0;
+    }
+    .menu a{
+        color: var(--text-color-inverse);
+        line-height: 60px;
+    }
+    .open-menu,
+    .close-menu{
+        display: block;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+    .close-menu{
+        align-self:flex-end;
+        padding: 20px 15px;
+    }
+    .menu_opened{
+        opacity: 1;
+        pointer-events: all;
+    }
+    .open-menu:focus:not(:focus-visible),
+    .close-menu:focus:not(:focus-visible){
+        outline:none;
+    }
+}
